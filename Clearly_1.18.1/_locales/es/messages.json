@@ -1,0 +1,10 @@
+{
+  "pkgName": {
+      "message": "Clearly Reader - Tu modo lector perdido",
+      "description": ""
+  },
+  "pkgDescription": {
+      "message": "Habilitar el modo lector. Soporta copiar, traducir y hablar, exportar pdf doc y markdown",
+      "description": ""
+  }
+}

@@ -1,0 +1,61 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name": "__MSG_pkgName__",
+  "version": "1.17.2",
+  "description": "__MSG_pkgDescription__",
+  "default_locale": "en",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab",
+    "tts",
+    "fontSettings",
+    "<all_urls>"
+  ],
+  "offline_enabled": true,
+  "browser_action": {
+    "default_title": "Active Clearly (Alt/Option+R)",
+    "default_icon": {
+      "16": "assets/icons/disable/ic_16.png",
+      "32": "assets/icons/disable/ic_32.png",
+      "48": "assets/icons/disable/ic_48.png",
+      "128": "assets/icons/disable/ic_128.png"
+    }
+  },
+  "commands": {
+    "toggle": {
+      "suggested_key": {
+        "mac": "Alt+R",
+        "windows": "Alt+R",
+        "chromeos": "Alt+R",
+        "linux": "Alt+R"
+      },
+      "description": "Toggle Reader"
+    }
+  },
+  "background": {
+    "scripts": ["pages/background/background.js"]
+  },
+  "icons": {
+    "16": "assets/icons/readable/ic_16.png",
+    "32": "assets/icons/readable/ic_32.png",
+    "48": "assets/icons/readable/ic_48.png",
+    "128": "assets/icons/readable/ic_128.png"
+  },
+  "content_security_policy": "script-src 'self' https://api.clearlyreader.com https://clearlyreader.com https://ssl.google-analytics.com https://www.google-analytics.com https://stats.g.doubleclick.net https://www.google.com; object-src 'self';",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": [
+        "pages/content/clearly.js",
+        "pages/content/env.js",
+        "pages/content/message.js",
+        "pages/content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": ["*"],
+  "manifest_version": 2
+}
